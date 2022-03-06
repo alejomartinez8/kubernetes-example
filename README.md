@@ -1,4 +1,7 @@
 # Kubernetes Notes
+
+Course: https://www.udemy.com/course/docker-kubernetes-the-practical-guide/
+## Overview
 Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes services, support, and tools are widely available.
 
 https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/
@@ -9,7 +12,7 @@ https://kubernetes.io/docs/tasks/tools/
 * Install `kubectl`, allows you to run commands against Kubernetes clusters.
 * Install `minikube`, tool that lets you run Kubernetes locally.
 
-## Use Imperative
+## Imperative use
 
 > ### minikube
 To initialize a Virtual Machine with Kubernetes you can use: 
@@ -91,7 +94,7 @@ To delete a deployment or service:
 kubectl delete [deployment-name]
 kubectl delete [service-name]
 ```
-## Use Dlecarative
+## Dlecarative use
 
 Using a YAML or JSON file, you can configure you cluster, see https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-app-management-strong-
 
