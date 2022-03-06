@@ -9,14 +9,16 @@ https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/
 ## Installation
 https://kubernetes.io/docs/tasks/tools/
 
+
 * Install `kubectl`, allows you to run commands against Kubernetes clusters.
 * Install `minikube`, tool that lets you run Kubernetes locally.
 
-## Imperative use
+# Imperative use
 
-> ### minikube
-To initialize a Virtual Machine with Kubernetes you can use: 
-- `minikube start --driver=dokcer` (require Docker)
+> minikube
+> 
+To initialize a Virtual Machine with Kubernetes you can use some of this alternatives: 
+- `minikube start --driver=docker` (require Docker)
 - `minikube start --driver= virtualbox` (require virtualbox)
 - `minikube start` (using default with docker)
 
@@ -24,8 +26,8 @@ To check if it's working
 ```
 minikube status
 ```
-
-> ### kubectl
+Now you can connect to minikube cluster with `kubectl` cli.
+## Deployments and Services
 
 To create a deployment:
 ```
@@ -42,20 +44,20 @@ To list all pods:
 kubectl get pods
 ```
 
-You can see a web app to monitor your minikube(cluster) and see deployments, services, pods and more:
+You can see a web app to monitor your **minikube** cluster and see deployments, services, pods and more:
 ```
 minikube dashboard
 ```
 
-To expose the deployment in a port, create a service:
+To expose the deployment in a port, create a service using:
 ```
-kubectl expose deployment [deployment-service] --type=LoadBalancer --port=8080 
+kubectl expose deployment [deployment-name] --type=LoadBalancer --port=8080 
 ```
 You can see the services using:
 ```
 kubectl get services
 ```
-> Note: to expose on a public IP (in your host) you must use:
+> Note: to expose on a public IP (in your host, minikube) you cant use:
 > ```
 > minikube service [deployment-service]
 > ```
@@ -65,17 +67,21 @@ kubectl get services
 > ```
 > See: https://minikube.sigs.k8s.io/docs/handbook/accessing/
 
-
+## Scale
 To scale your app (increase numbers of pods/containers) you can use:
 ```
 kubectl scale deployment/first-app --replicas=3
 ```
+
+## Update (set)
 
 To update a container inside a pod:
 ```
 kubectl set image deployment/[deployment-name] [container-name]=[image name:tag]
 ```
 > Note: is important to have a different tag to update successfully
+
+## Rollout
 
 To know the status of a deployment:
 ```
@@ -89,12 +95,15 @@ To see history:
 ```
 kubectl rollout history deployment/first-app --revision=3
 ```
+
+## Delete
 To delete a deployment or service:
 ```
 kubectl delete [deployment-name]
 kubectl delete [service-name]
 ```
-## Dlecarative use
+
+# Dlecarative use
 
 Using a YAML or JSON file, you can configure you cluster, see https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-app-management-strong-
 
