@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: second-app-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: second-app
@@ -16,4 +16,11 @@ spec:
     spec:
       containers:
         - name: second-node
-          image: alejomartinez8/kub-first-app
+          image: alejomartinez8/kub-first-app:2
+          imagePullPolicy: Always
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            periodSeconds: 10
+            initialDelaySeconds: 5
