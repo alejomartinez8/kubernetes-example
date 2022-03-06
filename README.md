@@ -26,13 +26,18 @@ To check if it's working
 ```
 minikube status
 ```
+You can see a localhost web app to monitor your **minikube** cluster and see deployments, services, pods and more:
+```
+minikube dashboard
+```
 Now you can connect to minikube cluster with `kubectl` cli.
-## Deployments and Services
+## Deployments
 
-To create a deployment:
+To create a deployment from an image:
 ```
 kubectl create deployment [deployment-name] --image=[image name]
 ```
+> image must be from image registry (i.e. Docker hub)
 
 To list all deployments:
 ```
@@ -43,11 +48,7 @@ To list all pods:
 ```
 kubectl get pods
 ```
-
-You can see a web app to monitor your **minikube** cluster and see deployments, services, pods and more:
-```
-minikube dashboard
-```
+## Services
 
 To expose the deployment in a port, create a service using:
 ```
@@ -70,7 +71,7 @@ kubectl get services
 ## Scale
 To scale your app (increase numbers of pods/containers) you can use:
 ```
-kubectl scale deployment/first-app --replicas=3
+kubectl scale deployment/[deployment-name] --replicas=3
 ```
 
 ## Update (set)
@@ -87,13 +88,13 @@ To know the status of a deployment:
 ```
 kubectl rollout status deployment/[deployment-name]
 ```
-To roll out an update (for a possible failure):
+To rollout an update (for a possible failure):
 ```
-kubectl rollout undo deployment/first-app
+kubectl rollout undo deployment/[deployment-name]
 ```
 To see history:
 ```
-kubectl rollout history deployment/first-app --revision=3
+kubectl rollout history deployment/[deployment-name] --revision=3
 ```
 
 ## Delete
@@ -134,7 +135,7 @@ spec:
     spec:
       containers:
         - name: second-node
-          image: alejomartinez8/kub-first-app
+          image: alejomartinez8/kub-[deployment-name]
 
 ```
 For services (services.yaml):
