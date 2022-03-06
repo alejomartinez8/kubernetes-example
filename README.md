@@ -13,13 +13,13 @@ https://kubernetes.io/docs/tasks/tools/
 * Install `kubectl`, allows you to run commands against Kubernetes clusters.
 * Install `minikube`, tool that lets you run Kubernetes locally.
 
-# Imperative use
-
+## Run
+>
 > minikube
 > 
-To initialize a Virtual Machine with Kubernetes you can use some of this alternatives: 
+To initialize `minikube` you need a Virtual Machine with Kubernetes to emulate a Cluster, so you can use some of this alternatives: 
 - `minikube start --driver=docker` (require Docker)
-- `minikube start --driver= virtualbox` (require virtualbox)
+- `minikube start --driver=virtualbox` (require virtualbox)
 - `minikube start` (using default with docker)
 
 To check if it's working
@@ -31,6 +31,8 @@ You can see a localhost web app to monitor your **minikube** cluster and see dep
 minikube dashboard
 ```
 Now you can connect to minikube cluster with `kubectl` cli.
+# Imperative use
+
 ## Deployments
 
 To create a deployment from an image:
