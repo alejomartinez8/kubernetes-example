@@ -138,6 +138,8 @@ spec:
       containers:
         - name: second-node
           image: alejomartinez8/kub-[deployment-name]
+        # - name: example
+        #   image: example
 
 ```
 For services (services.yaml):
@@ -158,3 +160,4 @@ spec:
   type: LoadBalancer
 
 ```
+> if you like to update a config file reflected on the cluster, just executes again `kubectl apply -f filename.yaml`, and it changes everythinig (i.e. updating the image of container)
