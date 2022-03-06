@@ -52,7 +52,7 @@ kubectl get pods
 ```
 ## Services
 
-To expose the deployment in a port, create a service using:
+To expose the deployment on a port, create a service using:
 ```
 kubectl expose deployment [deployment-name] --type=LoadBalancer --port=8080 
 ```
@@ -110,7 +110,7 @@ kubectl delete [service-name]
 
 Using a YAML or JSON file, you can configure you cluster, see https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-app-management-strong-
 
-You can use the command `apply` to executes de declarative files:
+You can use the `apply` option to execute declarative files:
 ```
 kubectl apply -f deployment.yaml
 ```
