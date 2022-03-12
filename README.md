@@ -161,3 +161,8 @@ spec:
 
 ```
 > if you like to update a config file reflected on the cluster, just executes again `kubectl apply -f filename.yaml`, and it changes everythinig (i.e. updating the image of container)
+
+
+# Volumes
+
+Documentation https://kubernetes.io/docs/concepts/storage/volumes/
