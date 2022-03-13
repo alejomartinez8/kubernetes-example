@@ -14,7 +14,13 @@ spec:
     spec:
       containers:
       - name: story-container
-        image: alejomartinez8/kub-data-demo:2
+        image: alejomartinez8/kub-data-demo:3
+        env:
+          - name: STORY_FOLDER
+            valueFrom:
+              configMapKeyRef:
+                name: data-store-env
+                key: folder
         # Specify the volume for container
         volumeMounts:
           - mountPath: /app/story # The path in the contianer
@@ -25,7 +31,7 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 3000
-      # Create the volume in Kubernetes
+      # List of volumes that can be mounted by containers belonging to the pod.
       volumes:
         - name: story-volume
           # --> emptyDir Type
