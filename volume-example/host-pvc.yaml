@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: host-pvc
+spec:
+  volumeName: host-pv # The PV name in host-pv.yaml
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard # Permissions
+  resources:
+   requests:
+     storage: 1Gi # The max of Pod cacpcity
